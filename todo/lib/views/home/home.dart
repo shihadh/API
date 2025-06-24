@@ -97,7 +97,7 @@ class _HomeState extends State<Home> {
                             activeColor: AppColor.backgroundColor,
                             checkColor: AppColor.success,
                             side: BorderSide(color: AppColor.normal),
-                            value: todo.completed, onChanged: (val){value2.toggle(index, val);}),
+                            value: todo.completed ?? false, onChanged: (val){value2.toggle(index, val);}),
                             PopupMenuButton(
                               onSelected: (choice) {
                                 if(choice =='edit'){

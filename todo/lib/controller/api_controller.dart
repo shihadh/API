@@ -51,9 +51,16 @@ class ApiController extends ChangeNotifier {
     isLoading=true;
     await Future.delayed(Duration(seconds: 1));
     notifyListeners();
-    tododata = await todoService.getTodo();
-     isLoading=false;
+    final (list,error) = await  todoService.getTodo();
+    if(error != null){
+        isLoading=false;
+        notifyListeners();
+        return;
+    }
+    tododata =list!;
+    isLoading=false;
     notifyListeners();
+
   }
 
   void updateTodofn(

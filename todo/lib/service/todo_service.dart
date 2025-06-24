@@ -13,15 +13,18 @@ class TodoService {
   );
   String baseurl="https://684bc121ed2578be881c555f.mockapi.io/todos";
 
-  Future<List<TodoModel>>getTodo()async{
+  Future<(List<TodoModel>?,String?)>getTodo()async{
     
     try{
       var responce = await dio.get(baseurl);
       if(responce.statusCode ==200){
         List data =responce.data;
-        return data.map((e)=>TodoModel.fromJson(e)).toList();
+        final finaldata = data.map((e)=>TodoModel.fromJson(e)).toList();
+        return (finaldata,null);
     }else{
-      throw Exception("error to fatch data");
+      return (null,"erroe to fetch");
+      // throw Exception("error to fatch data");
+
     }
     }
     catch (e){
