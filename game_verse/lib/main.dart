@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:game_verse/controller/game_controller.dart';
 import 'package:game_verse/view/home/home.dart';
+import 'package:game_verse/view/navigation/navigation.dart';
 import 'package:provider/provider.dart';
 
 void main(){
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       darkTheme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: MainPage(),
     );
   }
 }

@@ -1,10 +1,15 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:game_verse/model/extra_info_model.dart';
 import 'package:game_verse/model/new_game_model.dart';
 import 'package:game_verse/model/games_model.dart';
+import 'package:game_verse/service/extra_info_service.dart';
 import 'package:game_verse/service/new_game_service.dart';
 import 'package:game_verse/service/games_service.dart';
+import 'package:game_verse/view/home/home.dart';
+import 'package:game_verse/view/platforms/platforms_page.dart';
+import 'package:game_verse/view/search/search.dart';
 
 class GameController extends ChangeNotifier{
   List<NewGameModel> upComingGames =[];
@@ -17,9 +22,17 @@ class GameController extends ChangeNotifier{
   List<GamesModel> playStation4Games =[];
   List<GamesModel> allGames=[];
   List<GamesModel> randomallGames=[];
+  ExtraInfoModel? extradetaiels;
   NewGameService gameService =NewGameService();
   GamesService gamesService =GamesService();
+  ExtraInfoService extraInfoService =ExtraInfoService();
   String? error;
+  int currentIndex = 0;
+  final List<Widget> pages = [
+    HomePage(),
+    SearchPage(),
+    PlatformsPage(),
+  ];
 
 void getFirstGames() async {
   try {
@@ -65,4 +78,23 @@ void getFirstGames() async {
       error = e.toString();
     }   
   }
+  Future<void> extraInfo(String id)async{
+    error =null;
+  try{
+  final data =await extraInfoService.extraInfo(id);
+  extradetaiels =data;
+  notifyListeners();
+  }
+  catch(e){
+    error =e.toString();
+    notifyListeners();
+  }
 }
+
+void changeIndex(int val){
+  currentIndex = val;
+  notifyListeners();
+}
+
+}
+

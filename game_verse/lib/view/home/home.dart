@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:game_verse/controller/game_controller.dart';
-import 'package:game_verse/util/constant.dart';
-import 'package:game_verse/view/home/home_widget.dart';
+import 'package:game_verse/constants/constant.dart';
+import 'package:game_verse/view/home/widgets/home_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-     Provider.of<GameController>(context,listen: false).getFirstGames();
+    Provider.of<GameController>(context,listen: false).getFirstGames();
     Provider.of<GameController>(context,listen: false).getDetailes();
    
     super.initState();
@@ -40,41 +40,21 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(20.0),
           child: ListView(
             children: [
-              TextField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  hintText: "Search",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10)
-                  ),
-                  filled: true,
-                  fillColor: const Color.fromARGB(29, 230, 233, 234),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10)
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10)
-
-                  )
-                ),
-              ),
-              AppWidgets.gap,
-              
              Column(
                children: [
                 SliderImage()
                ],
              ),
              AppWidgets.gap,
-             headlines(title: AppTexts.discover),
+             headlines(title: AppTexts.discover,context: context,navigate: context.watch<GameController>().allGames,),
              AppWidgets.gap,
              Discover(),
              AppWidgets.gap,
-             headlines(title: AppTexts.upcoming),
+             headlines(title: AppTexts.upcoming,context: context, navigate: context.watch<GameController>().upComingGames,),
              AppWidgets.gap,
              Upcoming(),
              AppWidgets.gap,
-             headlines(title: AppTexts.newgame),
+             headlines(title: AppTexts.newgame, context: context, navigate: context.watch<GameController>().newGames,),
              AppWidgets.gap,
              NewRelease()         
             ],
