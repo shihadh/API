@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:game_verse/controller/game_controller.dart';
 import 'package:game_verse/view/Detiels/game_details.dart';
@@ -9,7 +7,7 @@ import 'package:provider/provider.dart';
 class GameGridView extends StatelessWidget {
   final List<dynamic> games;
 
-  const GameGridView({Key? key, required this.games}) : super(key: key);
+  const GameGridView({super.key, required this.games});
 
   @override
   Widget build(BuildContext context) {

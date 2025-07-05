@@ -22,7 +22,7 @@ class TabsWidgets extends StatelessWidget {
             indicatorColor: Appcolors.blue,
             labelColor: Appcolors.light,
             tabs: const [
-              Tab(child: Text("Story Line")),
+              Tab(child: Text("About")),
               Tab(child: Text("ScreenShots")),
               Tab(child: Text("Requirements")),
             ],

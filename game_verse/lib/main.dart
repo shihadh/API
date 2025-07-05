@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:game_verse/controller/game_controller.dart';
-import 'package:game_verse/view/home/home.dart';
-import 'package:game_verse/view/navigation/navigation.dart';
+import 'package:game_verse/controller/platform_controller.dart';
+import 'package:game_verse/controller/splash_controller.dart';
+import 'package:game_verse/view/splash.dart';
 import 'package:provider/provider.dart';
 
 void main(){
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (context) => GameController(),)
+      ChangeNotifierProvider(create: (context) => GameController(),),
+      ChangeNotifierProvider(create: (context) => PlatformController(),),
+      ChangeNotifierProvider(create: (context) => SplashController(),)
     ]
     ,child: MyApp()));
 }
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       darkTheme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
-        home: MainPage(),
+        home: SplashScreen(),
     );
   }
 }

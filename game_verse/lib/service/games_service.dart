@@ -13,11 +13,8 @@ class GamesService {
       List<GamesModel>all=[];
       int pageCount =0;
        const int maxPages = 2;
-        var stopwatch = Stopwatch()..start();
         while(url != null && pageCount<maxPages){
-          log("wile");
           var response =await dio.get(url);
-            log("Page $pageCount fetched in ${stopwatch.elapsedMilliseconds} ms");
           if(response.statusCode == 200){
           List data = response.data['results'];
           all.addAll(data.map((e)=>GamesModel.fromJson(e)).toList());

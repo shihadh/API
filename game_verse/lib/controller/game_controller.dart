@@ -22,12 +22,14 @@ class GameController extends ChangeNotifier{
   List<GamesModel> playStation4Games =[];
   List<GamesModel> allGames=[];
   List<GamesModel> randomallGames=[];
+  List<GamesModel> filteredGames=[];
   ExtraInfoModel? extradetaiels;
   NewGameService gameService =NewGameService();
   GamesService gamesService =GamesService();
   ExtraInfoService extraInfoService =ExtraInfoService();
   String? error;
   int currentIndex = 0;
+  TextEditingController searchcontroller = TextEditingController();
   final List<Widget> pages = [
     HomePage(),
     SearchPage(),
@@ -41,27 +43,33 @@ void getFirstGames() async {
     final results = await Future.wait([
       gamesService.fetchgames(4),   // PC
       gamesService.fetchgames(187), // PlayStation 5
-      // gamesService.fetchgames(18),  // PlayStation 4
       gamesService.fetchgames(1),   // Xbox One
-      // gamesService.fetchgames(21),  // Android
-      // gamesService.fetchgames(3),   // iOS
     ]);
 
     pcGames = results[0];
     playStation5Games = results[1];
-    // playStation4Games = results[2];
     xBoxGames = results[2];
-    // androidGames = results[4];
-    // iOSGames = results[5];
 
     allGames = [...playStation5Games, ...pcGames, ...xBoxGames];
     randomallGames = [...allGames]..shuffle();
 
     notifyListeners();
+
   } catch (e) {
     error = e.toString();
     notifyListeners();
   }
+}
+
+void getSecondGames()async{
+  await Future.delayed(Duration(seconds: 5));
+  var ps4 =  await gamesService.fetchgames(18); // PlayStation 4
+  var mob = await gamesService.fetchgames(21);  // Android
+  var os = await gamesService.fetchgames(3);   // iOS
+    playStation4Games = ps4;
+    androidGames =mob;
+    iOSGames= os;
+    notifyListeners();
 }
 
 
@@ -93,6 +101,18 @@ void getFirstGames() async {
 
 void changeIndex(int val){
   currentIndex = val;
+  notifyListeners();
+}
+
+void search(String text) {
+  if (text.isEmpty) {
+    filteredGames = [];
+  } else {
+    filteredGames = allGames
+        .where((game) =>
+            game.name!.toLowerCase().contains(text.toLowerCase()))
+        .toList();
+  }
   notifyListeners();
 }
 
