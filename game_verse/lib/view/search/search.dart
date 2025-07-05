@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:game_verse/constants/constant.dart';
 import 'package:game_verse/controller/game_controller.dart';
+import 'package:game_verse/view/Detiels/game_details.dart';
 import 'package:provider/provider.dart';
 
 class SearchPage extends StatelessWidget {
@@ -58,16 +59,22 @@ class SearchPage extends StatelessWidget {
                     itemCount: value.filteredGames.length,
                     itemBuilder: (context, index) {
                       final game = value.filteredGames[index];
-                      return Card(
+                      return Card(semanticContainer: true,
                         color: Colors.black12,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        child: ListTile(
-                          leading: Image.network(game.backgroundImage!, width: 60,),
-                          title: Text(
-                            game.name!,
-                            style: TextStyle(color: Appcolors.light),
+                        child: GestureDetector(
+                          onTap: () async{
+                             await value.extraInfo(game.id.toString());
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => GameDetails(index: index, gametype: value.filteredGames),));
+                          },
+                          child: ListTile(
+                            leading: Image.network(game.backgroundImage!, width: 60,),
+                            title: Text(
+                              game.name!,
+                              style: TextStyle(color: Appcolors.light),
+                            ),
                           ),
                         ),
                       );

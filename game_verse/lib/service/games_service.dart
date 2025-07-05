@@ -7,12 +7,12 @@ class GamesService {
   Dio dio =Dio();
 
   Future<List<GamesModel>> fetchgames(int id)async{
-  String url="https://api.rawg.io/api/games?key=25935b8a68e44bfc9538e3ecbf59ce89&platforms=$id&page_size=10";
+  String url="https://api.rawg.io/api/games?key=25935b8a68e44bfc9538e3ecbf59ce89&platforms=$id&page_size=40";
 
     try{
       List<GamesModel>all=[];
       int pageCount =0;
-       const int maxPages = 2;
+       const int maxPages = 4;
         while(url != null && pageCount<maxPages){
           var response =await dio.get(url);
           if(response.statusCode == 200){
