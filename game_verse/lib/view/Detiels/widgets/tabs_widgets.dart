@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:game_verse/constants/constant.dart';
 import 'package:game_verse/controller/game_controller.dart';
+import 'package:game_verse/constants/color_constant.dart';
 
 class TabsWidgets extends StatelessWidget {
   final List<dynamic>gametype;

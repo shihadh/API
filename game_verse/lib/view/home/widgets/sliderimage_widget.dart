@@ -3,11 +3,12 @@ import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:game_verse/controller/game_controller.dart';
-import 'package:game_verse/constants/constant.dart';
 import 'package:game_verse/view/gridView/grid_view_page.dart';
 import 'package:game_verse/widget/widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:game_verse/constants/color_constant.dart';
+
 
 class SliderImage extends StatelessWidget {
   const SliderImage({super.key});

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating/flutter_rating.dart';
+import 'package:game_verse/constants/widget_constants.dart';
 import 'package:game_verse/controller/game_controller.dart';
-import 'package:game_verse/constants/constant.dart';
+import 'package:game_verse/constants/text_constant.dart';
 import 'package:game_verse/view/Detiels/widgets/platform_widget.dart';
 import 'package:game_verse/view/Detiels/widgets/tabs_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:game_verse/constants/color_constant.dart';
+
 
 class GameDetails extends StatelessWidget {
   final int index;

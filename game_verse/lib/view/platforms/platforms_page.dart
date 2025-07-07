@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:game_verse/constants/constant.dart';
+import 'package:game_verse/constants/text_constant.dart';
 import 'package:game_verse/controller/game_controller.dart';
 import 'package:game_verse/controller/platform_controller.dart';
 import 'package:game_verse/view/platforms/widgets/card_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:game_verse/constants/color_constant.dart';
 
 class PlatformsPage extends StatelessWidget {
   const PlatformsPage({super.key});

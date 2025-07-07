@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:game_verse/constants/widget_constants.dart';
 import 'package:game_verse/controller/game_controller.dart';
-import 'package:game_verse/constants/constant.dart';
+import 'package:game_verse/constants/text_constant.dart';
 import 'package:game_verse/view/home/widgets/discover_widget.dart';
 import 'package:game_verse/view/home/widgets/new_release_widget.dart';
 import 'package:game_verse/view/home/widgets/sliderimage_widget.dart';
 import 'package:game_verse/view/home/widgets/upcoming_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:game_verse/constants/color_constant.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

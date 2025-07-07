@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:game_verse/constants/constant.dart';
+import 'package:game_verse/constants/color_constant.dart';
 import 'package:game_verse/view/gridView/grid_view.dart';
 
 class GridViewPage extends StatelessWidget {

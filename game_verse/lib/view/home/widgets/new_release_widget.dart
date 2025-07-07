@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating/flutter_rating.dart';
-import 'package:game_verse/constants/constant.dart';
 import 'package:game_verse/controller/game_controller.dart';
 import 'package:game_verse/view/Detiels/game_details.dart';
 import 'package:game_verse/view/home/widgets/sliderimage_widget.dart';
 import 'package:game_verse/widget/widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:game_verse/constants/color_constant.dart';
+
 
 class NewRelease extends StatelessWidget {
   const NewRelease({super.key});
