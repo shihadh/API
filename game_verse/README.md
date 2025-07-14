@@ -1,10 +1,3 @@
-# game_verse
-
-A new Flutter project.
-
-## Getting Started
-
-
 url in the app 
 
 add depentancy url_launcher
