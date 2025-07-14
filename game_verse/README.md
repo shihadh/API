@@ -24,8 +24,7 @@ add this on androidMainifest.xml (inside <manifest (outside the <application))
             <category android:name="android.intent.category.BROWSABLE"/>
             <data android:scheme="https"/>
         </intent>
-
-        <!-- Already present for text -->
+        <!-- Already present for text -->//
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
