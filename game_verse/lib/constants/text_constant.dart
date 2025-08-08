@@ -10,4 +10,8 @@ class AppTexts{
   static const String mobile = "Android";
   static const String iphone = "iOS";
 
+  //search 
+  static const String search = "Search";
+  static const String emptySearch = "No games found.";
+
 }

@@ -22,6 +22,7 @@ class GamesService {
            if(nexturl == null || nexturl == url){
             break;
            }
+           
            url =nexturl;
            pageCount++;
         }else{

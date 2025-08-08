@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_verse/constants/text_constant.dart';
 import 'package:game_verse/controller/game_controller.dart';
 import 'package:game_verse/view/Detiels/game_details.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +27,7 @@ class SearchPage extends StatelessWidget {
                 style: TextStyle(color: Appcolors.light),
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.search),
-                      hintText: "Search",
+                      hintText: AppTexts.search,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)
                       ),
@@ -50,7 +51,7 @@ class SearchPage extends StatelessWidget {
                   if (value.filteredGames.isEmpty) {
                     return Center(
                       child: Text(
-                        "No games found.",
+                        AppTexts.emptySearch,
                         style: TextStyle(color: Appcolors.light),
                       ),
                     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_verse/constants/assets_constant.dart';
 import 'package:game_verse/constants/text_constant.dart';
 import 'package:game_verse/controller/game_controller.dart';
 import 'package:game_verse/controller/platform_controller.dart';
@@ -38,7 +39,7 @@ List<dynamic> getGamesByKey(String key) {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Appcolors.light),
         backgroundColor: Appcolors.dark,
-        leading: Image.asset("images/logo.png"),
+        leading: Image.asset(AssetsConstant.logo),
         centerTitle: true,
         title: Text(AppTexts.appName,style: GoogleFonts.fjallaOne(
           color: Appcolors.light,)),

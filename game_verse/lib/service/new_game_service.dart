@@ -24,7 +24,7 @@ class NewGameService {
       }
 
     }catch(e){
-      throw Exception(e);
+      return (null,"faild to data fetched");
       
     }
   }
