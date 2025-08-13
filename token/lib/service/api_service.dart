@@ -7,7 +7,11 @@ import 'package:token/service/token_manager.dart';
 class ApiService {
 
   static const  String url = "https://dummyjson.com/auth";
-  static final Dio dio = Dio(BaseOptions(baseUrl: url));
+  static final Dio dio = Dio(BaseOptions(
+    connectTimeout: const Duration(seconds: 10),
+    receiveTimeout: const Duration(seconds: 10),
+    baseUrl: url
+    ));
 
   static void init(){
     dio.interceptors.add(InterceptorsWrapper(
