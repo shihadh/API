@@ -1,10 +1,11 @@
 import 'dart:developer';
 
+import 'package:cart/constant/text_constents.dart';
 import 'package:cart/model/cart_model.dart';
 import 'package:dio/dio.dart';
 
 class CartService {
-  Dio dio = Dio(BaseOptions(baseUrl: "https://dummyjson.com" ));
+  Dio dio = Dio(BaseOptions(baseUrl: TextConstents.url));
   Future<(List<CartModel>?, String?)>fetch()async{
     try{
       log("message");
