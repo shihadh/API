@@ -5,7 +5,10 @@ import 'package:cart/model/cart_model.dart';
 import 'package:dio/dio.dart';
 
 class CartService {
-  Dio dio = Dio(BaseOptions(baseUrl: TextConstents.url));
+  Dio dio = Dio(BaseOptions(
+    connectTimeout: Duration(seconds: 10),
+    receiveTimeout: Duration(seconds: 10),
+    baseUrl: TextConstents.url));
   Future<(List<CartModel>?, String?)>fetch()async{
     try{
       log("message");
