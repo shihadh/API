@@ -10,7 +10,7 @@ class CartService {
       log("message");
       final response = await dio.get("/carts");
       if(response.statusCode == 200){
-        List data =response.data['carts'];
+        List data =response.data['carts'][0]['products'];
         final finaldata = data.map((e)=>CartModel.fromjson(e)).toList();
         log("$finaldata");
         return (finaldata,null);

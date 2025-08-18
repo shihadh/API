@@ -1,3 +1,4 @@
+import 'package:cart/constant/text_constents.dart';
 import 'package:cart/controller/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
           }
           if (value.datas.isEmpty) {
             return Center(
-              child: Text("no data"),
+              child: Text(TextConstents.noData),
             );
                 }
             return Column(
@@ -39,12 +40,12 @@ class _HomePageState extends State<HomePage> {
                 final item = value.datas[index];
                 return ListTile(
                   leading: Image.network(
-                    item.thumbnail ?? 'no data',
+                    item.thumbnail ?? TextConstents.noData,
                     width: 50,
                     height: 50,
                     errorBuilder: (context, error, stackTrace) => Icon(Icons.error),
                   ),
-                  title: Text(item.title ?? 'no data'),
+                  title: Text(item.title ?? TextConstents.noData),
                   subtitle: Text("Price: ₹${item.prize} | Qty: ${item.qaundity}"),
                   trailing: Text("Total: ₹${item.total}"),
                 );
